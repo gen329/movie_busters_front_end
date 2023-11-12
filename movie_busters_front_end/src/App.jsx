@@ -1,15 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Edit from "./Pages/Edit";
-import FourOFour from "./Pages/FourOFour";
-import Home from "./Pages/Home";
-import Index from "./Pages/Index";
-import New from "./Pages/New";
-import Show from "./Pages/Show";
-
-import NavBar from "./Components/Navbar";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 function App() {
+  const [count, setCount] = useState(0)
+
   return (
     <div className="App">
       <Router>
