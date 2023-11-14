@@ -1,4 +1,4 @@
-import MovieEditForm from "../Components/MovieEdit";
+import MovieEditForm from "../Components/MovieEditForm";
 
 function Edit() {
   return (
