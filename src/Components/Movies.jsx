@@ -14,7 +14,7 @@ function Movies() {
   }, []);
 
   return (
-    <div className="Movies">
+    <div className="movies">
       <section>
         <table>
           <thead>

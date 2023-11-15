@@ -191,10 +191,12 @@ main {
 
 .page {
 	text-align: center;
+	align-items: center;
 }
 
 img {
-	vertical-align: middle;
+	align-items: center;
+
 }
 
 .overimg {
@@ -218,3 +220,4 @@ img {
 	width: 170px;    
 	height: 245px;
 }
+

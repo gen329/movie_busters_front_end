@@ -49,7 +49,7 @@ function ReviewForm({ reviewDetails, handleSubmit, children}) {
     <div className="review">
       {children}
       <form onSubmit={onSubmit} className="columns">
-        <label htmlFor="movie_id">Movie Title:</label>
+        <label htmlFor="movie_id">Movie Title: </label>
         <input
           id="movie_title"
           value={review.title}
@@ -57,13 +57,15 @@ function ReviewForm({ reviewDetails, handleSubmit, children}) {
           onChange={handleTextChange}
           />
           <br/>
-        <label htmlFor="user_id">Username:</label>
+          <br/>
+        <label htmlFor="user_id">Username: </label>
         <input
           id="reviewer"
           value={review.user_id}
           type="text"
           onChange={handleTextChange}
           />
+          <br/>
           <br/>
         <label htmlFor="rating">What would you rate this movie? 1 = poor 5 = amazing</label> 
         <br/>
@@ -77,7 +79,8 @@ function ReviewForm({ reviewDetails, handleSubmit, children}) {
           required
           />
           <br/>
-         <label htmlFor="comment">Comments:</label>
+          <br/>
+         <label htmlFor="comment">Comments: </label>
          <input
           id="comment"
           value={review.comment}
@@ -85,9 +88,11 @@ function ReviewForm({ reviewDetails, handleSubmit, children}) {
           onChange={handleTextChange}
           />
           <br/>
+          <br/>
           <button input type="submit"> Reviews
           {/* <Link to={`/movies/${id}/reviews`}>Reviews</Link> */}
           </button>
+          <br/>
       </form>
     </div>
   );
