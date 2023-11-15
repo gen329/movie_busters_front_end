@@ -96,7 +96,8 @@ function MovieNewForm() {
           id="runtime"
           type="number"
           name="runtime"
-          value={handleTextChange}
+          value={movie.runtime}
+          onChange={handleTextChange}
           required
           />
           <br />
