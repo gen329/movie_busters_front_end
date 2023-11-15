@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 const API = import.meta.env.VITE_BASE_URL
 
 function MovieDetails() {
@@ -30,7 +30,7 @@ function MovieDetails() {
 
     return (
       <article>
-        <h3>{movie.name}</h3>
+        <h3>{movie.title}</h3>
       </article>
     )
   }
