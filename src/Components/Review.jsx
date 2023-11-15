@@ -24,10 +24,11 @@ function Review({ review, handleDelete, handleEdit }) {
       ) : (
         <>
           <h4>
-            {review.title}
-            <span>{review.rating}</span>
+            User Review {review.title}
           </h4>
-          <h5>{review.comment}</h5>
+          <h5>COMMENT: {review.comment}</h5>
+            <span>RATING:{review.rating}</span>
+            <br/>
           <button onClick={toggleView}>
             {viewReviewForm ? "Cancel" : "Edit this review"}
           </button>

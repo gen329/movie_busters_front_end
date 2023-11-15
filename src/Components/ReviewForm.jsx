@@ -5,8 +5,8 @@ function ReviewForm({ reviewDetails, handleSuubmit, toggleView, children}) {
   let { id } = useParams();
   
   const [review, setReview] = useState({
-    movie_id: id,
-    user_id: id,
+    movie_id: "",
+    user_id: "",
     rating: 0,
     comment: "",
   });
@@ -28,8 +28,8 @@ function ReviewForm({ reviewDetails, handleSuubmit, toggleView, children}) {
       toggleView();
     }
     setReview({
-      movie_id: id,
-      user_id: id,
+      movie_id: "",
+      user_id: "",
       rating: 0,
       comment: "",
     });
@@ -40,14 +40,40 @@ function ReviewForm({ reviewDetails, handleSuubmit, toggleView, children}) {
     <div className="Edit">
       {children}
       <form onSubmit={onSubmit}>
-        <label htmlFor="reviewer">Name:</label>
+        <label htmlFor="movie_id">Movie Title:</label>
+        <input
+          id="movie_title"
+          value={review.title}
+          type="text"
+          onChange={handleTextChange}
+          required
+          />
+          <br/>
+        <label htmlFor="user_id">Username:</label>
         <input
           id="reviewer"
           value={review.user_id}
           type="text"
           onChange={handleTextChange}
+          />
+          <br/>
+        <label htmlFor="rating">What would you rate this movie?</label> 
+        <input
+          id="rating"
+          value={review.rating}
+          type="text"
+          onChange={handleTextChange}
           required
           />
+          <br/>
+         <label htmlFor="comment">Comments:</label>
+         <input
+          id="comment"
+          value={review.comment}
+          type="text"
+          onChange={handleTextChange}
+          />
+          <br/>
           <input type="submit" />
       </form>
     </div>

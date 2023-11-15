@@ -66,11 +66,13 @@ function MovieDetails() {
         {posterUrl && <img src={posterUrl} alt="Movie Poster" />}
       </div>
       <h2>{movie.title}</h2>
-      <p>{movie.description}</p>
-      <p>Year of Release: {movie.year_of_release}</p>
-      <p>Genres: {movie.genres}</p>
-      <p>Rating: {movie.rating}</p>
-      <p>Runtime: {movie.runtime} minutes</p>
+      <p>MOVIE INFO:<br />
+      <br/>
+      {movie.description}
+      <br/> Year of Release: {movie.year_of_release}
+      <br/> Genres: {movie.genres}
+      <br/> Rating: {movie.rating}
+      <br/> Runtime: {movie.runtime} minutes</p>
       <div className='showNavigation'>
         <div>
           <Link to={`/movies`}>

@@ -27,51 +27,51 @@ function Reviews() {
       },
     })
       .then((response) => response.json())
-      .then((respoonseJSON) => {
+      .then((responseJSON) => {
         setReviews([...reviews, responseJSON]);
       })
       .catch((error) => console.log(error));
   };
 
-  const handleDelete = (reviewId) => {
-    fetch(`${API}/movies/${id}/reviews/${reviewId}`, {
-      method: "DELETE" })
-        .then((response) => {
-          const copyReviewArray = [...reviews];
-          const indexDeletedReview = copyReviewArray.findIndex(
-            (review) => review.id === reviewId
-          );
-          console.log(reviewId, indexDeletedReview);
-          copyReviewArray.splice(indexDeletedReview, 1);
-          console.log("NEW REVIEWS", copyReviewArray);
-          setReviews(copyReviewArray);
-        })
-        .catch((error) => console.log(error));
-    };
+  // const handleDelete = (reviewId) => {
+  //   fetch(`${API}/movies/${id}/reviews/${reviewId}`, {
+  //     method: "DELETE" })
+  //       .then((response) => {
+  //         const copyReviewArray = [...reviews];
+  //         const indexDeletedReview = copyReviewArray.findIndex(
+  //           (review) => review.id === reviewId
+  //         );
+  //         console.log(reviewId, indexDeletedReview);
+  //         copyReviewArray.splice(indexDeletedReview, 1);
+  //         console.log("NEW REVIEWS", copyReviewArray);
+  //         setReviews(copyReviewArray);
+  //       })
+  //       .catch((error) => console.log(error));
+  //   };
 
-    const handleEdit = (updatedReview) => {
-      fetch(`${API}/movies/${id}/reviews/${updatedReview.id}`,
-      {
-        method: "PUT",
-        body: JSON.stringify(updatedReview),
-        headers: { "Content-Type": "application/jsoon" },
-      })
-      .then((response) => response.json())
-      .then(responseJSON => {
-        const copyReviewArray = [...reviews]
-        const indexUpdatedReview = copyReviewArray.findIndex(review => {
-          return review.id === updatedReview.id
-        })
-        copyReviewArray[indexUpdatedReview] = responseJSON
-        setReviews(copyReviewArray)
-      });
-    };
+  //   const handleEdit = (updatedReview) => {
+  //     fetch(`${API}/movies/${id}/reviews/${updatedReview.id}`,
+  //     {
+  //       method: "PUT",
+  //       body: JSON.stringify(updatedReview),
+  //       headers: { "Content-Type": "application/jsoon" },
+  //     })
+  //     .then((response) => response.json())
+  //     .then(responseJSON => {
+  //       const copyReviewArray = [...reviews]
+  //       const indexUpdatedReview = copyReviewArray.findIndex(review => {
+  //         return review.id === updatedReview.id
+  //       })
+  //       copyReviewArray[indexUpdatedReview] = responseJSON
+  //       setReviews(copyReviewArray)
+  //     });
+  //   };
 
     return (
       <section className="Reviews">
-        <h2>Reviews</h2>
+        <h2>Customer Reviews!</h2>
         <ReviewForm handleSubmit={handleAdd}>
-          <h3>Add a New Review</h3>
+          <h3>Leave this movie a review:</h3>
         </ReviewForm>
         {reviews.map((review) => (
           <Review key={review.id} review={review} handleDelete={handleDelete} handleEdit={handleEdit} />
