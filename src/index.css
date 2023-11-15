@@ -78,10 +78,11 @@ body {
 	width: 100%;
 	background-image: url('bannerbg.png');
 	background-size: 100%;
+	text-align: center;
 	height: 50px;
-  text-align: center;
 	font-size: 15pt;
 	text-shadow: 3px 3px #999999;
+  color: white;
 }
 
 .title {
