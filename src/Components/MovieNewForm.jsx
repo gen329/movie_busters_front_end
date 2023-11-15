@@ -48,6 +48,7 @@ function MovieNewForm() {
           onChange={handleTextChange}
           required
         />
+        <br />
         <label htmlFor="yearOfRelease">Year of Release:</label>
         <input
           id="yearOfRelease"
@@ -57,6 +58,7 @@ function MovieNewForm() {
           onChange={handleTextChange}
           required
         />
+        <br />
         <label htmlFor="genre">Genre:</label>
         <input
           id="genre"
@@ -66,6 +68,7 @@ function MovieNewForm() {
           onChange={handleTextChange}
           required
         />
+        <br />
         <label htmlFor="description">Description:</label>
         <input
           id="description"
@@ -76,6 +79,27 @@ function MovieNewForm() {
           required
         />
         <br />
+        <label htmlFor="rating">Rating:</label>
+        <input
+          id="rating"
+          type="number"
+          name="rating"
+          value={movie.rating}
+          onChange={handleTextChange}
+          min={1}
+          max={5}
+          required
+         />
+         <br />
+         <label htmlFor="runtime">Runtime:</label> 
+         <input
+          id="runtime"
+          type="number"
+          name="runtime"
+          value={handleTextChange}
+          required
+          />
+          <br />
         <input type="submit" />
       </form>
     </div>
