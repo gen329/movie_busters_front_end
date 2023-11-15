@@ -1,15 +1,25 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams, Navigate } from "react-router-dom";
+const API = import.meta.env.VITE_API_URL;
 
-function ReviewForm({ reviewDetails, handleSuubmit, toggleView, children}) {
+function ReviewForm({ reviewDetails, handleSubmit, children}) {
   let { id } = useParams();
   
   const [review, setReview] = useState({
-    movie_id: "",
+    title: "",
     user_id: "",
     rating: 0,
     comment: "",
   });
+
+  useEffect(() => {
+    fetch(`${API}/movies/${id}/reviews`)
+    .then((response) => response.json())
+    .then((responseJSON) => {
+      setReview(responseJSON.allReviews)
+    })
+    .catch((error) => console.log(error));
+  }, [id,API]);
 
   const handleTextChange = (event) => {
     setReview({ ...review, [event.target.id]: event.target.value});
@@ -23,30 +33,28 @@ function ReviewForm({ reviewDetails, handleSuubmit, toggleView, children}) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    handleSuubmit(review, id);
+    handleSubmit(review, id);
     if (reviewDetails) {
-      toggleView();
+      Navigate(`${API}/movies/${id}/reviews`);
     }
     setReview({
-      movie_id: "",
+      title: "",
       user_id: "",
       rating: 0,
       comment: "",
     });
-    console.log("what's happening")
   };
 
   return(
-    <div className="Edit">
+    <div className="review">
       {children}
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="columns">
         <label htmlFor="movie_id">Movie Title:</label>
         <input
           id="movie_title"
           value={review.title}
           type="text"
           onChange={handleTextChange}
-          required
           />
           <br/>
         <label htmlFor="user_id">Username:</label>
@@ -57,7 +65,8 @@ function ReviewForm({ reviewDetails, handleSuubmit, toggleView, children}) {
           onChange={handleTextChange}
           />
           <br/>
-        <label htmlFor="rating">What would you rate this movie?</label> 
+        <label htmlFor="rating">What would you rate this movie? 1 = poor 5 = amazing</label> 
+        <br/>
         <input
           id="rating"
           value={review.rating}
@@ -76,7 +85,9 @@ function ReviewForm({ reviewDetails, handleSuubmit, toggleView, children}) {
           onChange={handleTextChange}
           />
           <br/>
-          <input type="submit" />
+          <button input type="submit"> Reviews
+          {/* <Link to={`/movies/${id}/reviews`}>Reviews</Link> */}
+          </button>
       </form>
     </div>
   );

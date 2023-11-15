@@ -60,7 +60,7 @@ function MovieDetails() {
   }
 
   return (
-    <article className='movie-details'>
+    <article className='overview'>
       <div>
         {error && <p>Error: {error}</p>}
         {posterUrl && <img src={posterUrl} alt="Movie Poster" />}
@@ -73,18 +73,22 @@ function MovieDetails() {
       <br/> Genres: {movie.genres}
       <br/> Rating: {movie.rating}
       <br/> Runtime: {movie.runtime} minutes</p>
+      <br/>
       <div className='showNavigation'>
         <div>
           <Link to={`/movies`}>
             <button>Back</button>
           </Link>
         </div>
+        <br/>
         <div>
           <Link to={`/movies/${id}/edit`}>
             <button>Edit</button>
           </Link>
         </div>
+        <br/>
         <button onClick={handleDelete}>Delete</button>
+        <br/>
         <Reviews />
       </div>
     </article>

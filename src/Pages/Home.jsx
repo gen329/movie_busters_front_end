@@ -2,7 +2,7 @@ function Home() {
   return (
     <div className="Home">
       <h2>Welcome</h2>
-      <h3>MOVIE BUSTERS!</h3>
+      <h3 className="banner">MOVIE BUSTERS!</h3>
       <p>Hey there, welcome to Movie Busters – your cozy corner of the internet for all things movies!
 
         At Movie Busters, we're all about kicking back, grabbing some popcorn, and diving into the world of films. No fancy jargon here – just a bunch of movie buffs sharing their thoughts on what's hot, what's not, and everything in between.

@@ -99,7 +99,8 @@ body {
 	height: 50px;
 	font-size: 15pt;
 	text-shadow: 3px 3px #999999;
-  color: white;
+  color: black;
+	background-color: red;
 }
 
 .title {
@@ -119,7 +120,7 @@ main {
 
 .rating {
 	width: 550px;
-	background-image: url('rottenbg.png');
+	/* background-image: url('rottenbg.png'); */
 	color: red;
 	font-size: 48pt;
 	vertical-align: middle;
@@ -139,6 +140,8 @@ main {
 	font-weight: bold;
 	padding: 8px;
 	border-spacing: 8px;
+	align-items: center;
+	justify-content: center;
 }
 
 
@@ -172,10 +175,10 @@ main {
 	font-family: inherit;
 	text-align: center;
 	width: 100%;
-	font-size: 10pt;
-	background: #A2B964;
+	font-size: 12pt;
+	background:lightcoral;
 	height: 100%;
-	font-weight:500;
+	font-weight:bold;
 }
 
 .end {
@@ -183,7 +186,7 @@ main {
 	padding-bottom: 5px;
 	width: 100%;
 	overflow:hidden;
-	background-color: #A2B964;
+	background-color: lightsalmon;
 }
 
 .page {
@@ -198,7 +201,7 @@ img {
 	width: 100%;
 }
 
-dt {
+td {
 	padding-top: 1em;
 	padding-bottom: 1em;
 }

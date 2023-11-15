@@ -9,7 +9,7 @@ function Review({ review, handleDelete, handleEdit }) {
   };
 
   return (
-    <div className="Review">
+    <div className="reviews">
       {viewReviewForm ? (
         <>
           <ReviewForm
@@ -23,11 +23,11 @@ function Review({ review, handleDelete, handleEdit }) {
         </>
       ) : (
         <>
-          <h4>
+          <h4 className="review2">
             User Review {review.title}
           </h4>
           <h5>COMMENT: {review.comment}</h5>
-            <span>RATING:{review.rating}</span>
+            <span className="rating">RATING:{review.rating}</span>
             <br/>
           <button onClick={toggleView}>
             {viewReviewForm ? "Cancel" : "Edit this review"}
