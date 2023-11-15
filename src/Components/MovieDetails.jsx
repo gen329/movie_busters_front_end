@@ -1,39 +1,31 @@
-import { useState, useEffect } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
-const API = import.meta.env.VITE_API_URL
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 function MovieDetails() {
-  const [movie, setMovie] = useState([]);
-  let { index } = useParams();
-  let navigate = useNavigate();
+  const { id } = useParams();
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
-    fetch(`${API}/movies/${index}`)
-    .then(response => response.json())
-    .then(movie => {
-      console.log(movie)
-      setMovie(movie)
-    })
-    .catch(() => navigate("/not-found"))
-  }, [index,navigate]);
+    fetch(`/api/movies/${id}`)
+      .then((response) => response.json())
+      .then((data) => setMovie(data))
+      .catch((error) => console.log(error));
+  }, [id]);
 
-  const handleDelete = () => {
-    const httpOptions = { "method" : "DELETE" };
-
-    fetch(`${API}/movies/${index}`, httpOptions)
-    .then((response) => {
-      console.log(response)
-      alert("Success - movie was deleted!");
-      navigate('/movies');
-    })
-    .catch((error) => console.error(error))
-
-    return (
-      <article className="overview">
-        <h3>{movie.title}</h3>
-      </article>
-    )
+  if (!movie) {
+    return <div>Loading...</div>;
   }
+
+  return (
+    <div>
+      <h2>{movie.title}</h2>
+      <p>{movie.description}</p>
+      <p>Year of Release: {movie.year_of_release}</p>
+      <p>Genres: {movie.genres.join(', ')}</p>
+      <p>Rating: {movie.rating}</p>
+      <p>Runtime: {movie.runtime} minutes</p>
+    </div>
+  );
 }
 
 export default MovieDetails;
