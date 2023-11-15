@@ -63,6 +63,8 @@ function ReviewForm({ reviewDetails, handleSuubmit, toggleView, children}) {
           value={review.rating}
           type="text"
           onChange={handleTextChange}
+          min={1}
+          max={5}
           required
           />
           <br/>
