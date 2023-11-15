@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+
 
 const Movie = ({ movie }) => {
   const [posterUrl, setPosterUrl] = useState('');
@@ -30,15 +32,27 @@ const Movie = ({ movie }) => {
     fetchPoster();
   }, [movie.title]);
 
-  return (
-    <tr>
-      <td>{movie.title}</td>
-      <td>
-        {error && <p>Error: {error}</p>}
-        {posterUrl && <img src={posterUrl} alt="Movie Poster" />}
-      </td>
-    </tr>
-  );
-};
+    return (
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              {error && <p>Error: {error}</p>}
+              {posterUrl && <img src={posterUrl} alt="Movie Poster" />}
+            </td>
+            <td>
+              <div>
+                <p>{movie.title}</p>
+                <p>{movie.year}</p>
+                <button>
+                <Link to={`/movies/${movie.id}`}>Details</Link>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    );
+}
 
 export default Movie;
