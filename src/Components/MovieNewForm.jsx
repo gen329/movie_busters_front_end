@@ -52,36 +52,35 @@ function MovieNewForm() {
         <label htmlFor="yearOfRelease">Year of Release:</label>
         <input
           id="yearOfRelease"
-          type="number"
-          name="year"
           value={movie.year_of_release}
+          type="number"
           onChange={handleTextChange}
         />
         <br />
         <label htmlFor="genre">Genre:</label>
         <input
           id="genre"
+          value={movie.genre}
           type="text"
           name="genre"
-          value={movie.genre}
           onChange={handleTextChange}
         />
         <br />
         <label htmlFor="description">Description:</label>
         <input
           id="description"
+          value={movie.description}
           type="text"
           name="description"
-          value={movie.description}
           onChange={handleTextChange}
         />
         <br />
         <label htmlFor="rating">Rating:</label>
         <input
           id="rating"
+          value={movie.rating}
           type="number"
           name="rating"
-          value={movie.rating}
           onChange={handleTextChange}
           min={1}
           max={5}
@@ -91,9 +90,9 @@ function MovieNewForm() {
          <label htmlFor="runtime">Runtime:</label> 
          <input
           id="runtime"
+          value={movie.runtime}
           type="number"
           name="runtime"
-          value={movie.runtime}
           onChange={handleTextChange}
           />
           <br />
