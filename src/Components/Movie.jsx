@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-
 const Movie = ({ movie }) => {
   const [posterUrl, setPosterUrl] = useState('');
   const [error, setError] = useState(null);

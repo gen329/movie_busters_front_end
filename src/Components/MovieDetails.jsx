@@ -16,7 +16,7 @@ function MovieDetails() {
   if (!movie) {
     return <div>Loading...</div>;
   }
-
+  
 
   return (
     <div className='movie-details'>
