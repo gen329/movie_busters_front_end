@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import Reviews from "./Reviews";
 
 const API = import.meta.env.VITE_API_URL;
+const apiKey = import.meta.env.VITE_OMDB_API_KEY;
 
 function MovieDetails() {
   const { id } = useParams();
@@ -15,13 +16,38 @@ function MovieDetails() {
       .then((data) => setMovie(data))
       .catch((error) => console.error(error));
   }, [id]);
-
+  
   if (!movie) {
     return <div>Loading...</div>;
   }
+
+  useEffect(() => {
+    const fetchPoster = async () => {
+      try {
+        const apiUrl = `https://www.omdbapi.com/?t=${encodeURIComponent(movie.title)}&apikey=${apiKey}`;
+        const response = await fetch(apiUrl);
+        const responseData = await response.json();
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        if (responseData.Poster && responseData.Poster !== 'N/A') {
+          setPosterUrl(responseData.Poster);
+        } else {
+          setPosterUrl('');
+        }
+      } catch (error) {
+        console.error('Fetch error:', error);
+        setError('Failed to fetch data. Please try again.');
+      }
+    };
+
+    fetchPoster();
+  }, [movie.title]);
   
   const handleDelete = () => {
-    deletedMovie()
+    deleteMovie()
   }
 
   const deleteMovie = () => {
@@ -50,6 +76,7 @@ function MovieDetails() {
             <button>Edit</button>
           </Link>
         </div>
+        <button onClick={handleDelete}>Delete</button>
         <Reviews />
       </div>
     </article>
