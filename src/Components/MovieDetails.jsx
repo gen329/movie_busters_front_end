@@ -29,7 +29,7 @@ function MovieDetails() {
     .catch((error) => console.error(error))
 
     return (
-      <article>
+      <article className="overview">
         <h3>{movie.title}</h3>
       </article>
     )

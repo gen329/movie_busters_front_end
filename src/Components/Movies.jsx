@@ -17,12 +17,6 @@ function Movies() {
       <section>
         <table>
           <thead>
-            <tr>
-              <th>ID</th>
-              <th>Title</th>
-              <th>Year of Release</th>
-              {/* Add more headers as needed */}
-            </tr>
           </thead>
           <tbody>
             {movies.map((movie) => (
