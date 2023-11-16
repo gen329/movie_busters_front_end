@@ -13,10 +13,10 @@ Contributing
 This application utilizes React and React Router to provide an interactive user interface to manage movies and their respective details and reviews.
 
 To browse through our movies, type this in after your localhost url:
-/movies - All Movies (Index)
-/movies/new - New Movie (New)
-/movies/:id - Movie Details (Show)
-/movies/:id/edit - Edit Movie (Edit)
+- /movies - All Movies (Index)
+- /movies/new - New Movie (New)
+- /movies/:id - Movie Details (Show)
+- /movies/:id/edit - Edit Movie (Edit)
 
 Installation
 Clone the repository:
