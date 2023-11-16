@@ -31,27 +31,21 @@ const Movie = ({ movie }) => {
     fetchPoster();
   }, [movie.title]);
 
-    return (
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              {error && <p>Error: {error}</p>}
-              {posterUrl && <img src={posterUrl} alt="Movie Poster" />}
-            </td>
-            <td>
-              <div>
-                <p>{movie.title}</p>
-                <p>{movie.year}</p>
-                <button>
-                <Link to={`/movies/${movie.id}`}>Details</Link>
-                </button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    );
+  return (
+    <div>
+      {error && <p>Error: {error}</p>}
+      {posterUrl && <img src={posterUrl} alt="Movie Poster" />}
+      <div>
+        <h1>{movie.title}</h1>
+        <h2>{movie.year_of_release}</h2>
+        <br />
+        <button className='detail-button'>
+          <Link to={`/movies/${movie.id}`}>Details</Link>
+        </button>
+        <br />
+      </div>
+    </div>
+  );
 }
 
 export default Movie;
